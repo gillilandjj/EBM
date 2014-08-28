@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/CancelProvisioningOrderResponse.xsd" version="84.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/CancelProvisioningOrderResponse.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="CancelProvisioningOrderResponse" type="CancelProvisioningOrderResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to stop the create order from Workflow Engine.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CancelProvisioningOrderResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to stop the create order from Workflow Engine.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="responseTime" type="cng:DateTimeWithTimezoneInfo">
+        <xs:annotation>
+          <xs:documentation>Response Time Information.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="additionalMessage">
+        <xs:annotation>
+          <xs:documentation>Additional Message when unable to stop/cancel the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Response" type="cng:ResponseInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

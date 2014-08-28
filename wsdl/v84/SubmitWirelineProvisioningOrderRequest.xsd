@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/SubmitWirelineProvisioningOrderRequest.xsd" version="84.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/SubmitWirelineProvisioningOrderRequest.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="SubmitWirelineProvisioningOrderRequest" type="SubmitWirelineProvisioningOrderRequestInfo">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SubmitWirelineProvisioningOrderRequestInfo">
+    <xs:annotation>
+      <xs:documentation>The  interface is to enable the SP user to order AVPN and MIS in ATT Partner Exchange portal</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productType">
+        <xs:annotation>
+          <xs:documentation>This represents the family for the product being selected. Its type is an enumeration with the allowed values ?AVPN? and , ?MIS? </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="AVPN"/>
+            <xs:enumeration value="MIS"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="serviceProviderContactEmail">
+        <xs:annotation>
+          <xs:documentation>This will be used to send notification to the SP user about the status of the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="SiteInformationDetails">
+        <xs:annotation>
+          <xs:documentation>This is to support site information details and it is unbounded</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ProvisionalSiteDetails">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="siteNumber">
+                    <xs:annotation>
+                      <xs:documentation>this value represents the displayed name of siteNumber in the APEX Catalog and It should be unique. For Example: Site number as ?site1? with maximum of 10 characters</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="siteFriendlyName">
+                    <xs:annotation>
+                      <xs:documentation>This value represents the displayed name of site frinedly name. For Example: Any name given by user with maximum of 254 charaters.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="254"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="AddressDetails">
+                    <xs:annotation>
+                      <xs:documentation>This field represents complete address details of given site.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="addressOne">
+                          <xs:annotation>
+                            <xs:documentation>Address line one</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="addressTwo">
+                          <xs:annotation>
+                            <xs:documentation>Address line two</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="city">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="80"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="state">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="40"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="postalCode" type="cng:AddressZipCodeInfo">
+                          <xs:annotation>
+                            <xs:documentation>5 Digit Postal Code</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="telephoneNumber" type="cng:TelephoneNumberInfo">
+                          <xs:annotation>
+                            <xs:documentation>10 Digit Telephone Number</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="floorNumber">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="40"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="roomNumber">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="40"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="SiteSelectionDetails">
+                    <xs:annotation>
+                      <xs:documentation>Represents the selections for port and its access speed which the consumer wishes to price. </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SpeedDetails" type="cng:SpeedInfo">
+                          <xs:annotation>
+                            <xs:documentation>Details related to network speed. speedName, speedPhysicalValue and speedUnit are required for this service.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="ProductTypeDetails" type="cng:SpeedProductTypeInfo"/>
+                        <xs:element name="NetworkSpeedDetails">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="managedPortIndicator" type="xs:boolean">
+                                <xs:annotation>
+                                  <xs:documentation>This flag represents whether the port should be priced as a managed or an un-managed port.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                              <xs:element name="networkSpeedType">
+                                <xs:annotation>
+                                  <xs:documentation>Represents the network speed type. Valid values: &quot;T1&quot;, &quot;T3&quot;, &quot;ETH&quot;</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="T1"/>
+                                    <xs:enumeration value="T3"/>
+                                    <xs:enumeration value="ETH"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="SelectedAccessSpeedDetails">
+                                <xs:annotation>
+                                  <xs:documentation>Represents the Access Speed selected for the port. This is optional since the APEX Portal permits its users to buy a port without access.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="AccessSpeedDetails" type="cng:SpeedInfo">
+                                      <xs:annotation>
+                                        <xs:documentation>Details related to access speed. speedName,  speedPhysicalValue and speedUnit are required for this service.</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="ProductTypeDetails" type="cng:SpeedProductTypeInfo"/>
+                                    <xs:element name="accessSpeedType">
+                                      <xs:annotation>
+                                        <xs:documentation>Represents the access speed type. Valid values: &quot;PRIVATELINE&quot;, &quot;ETH&quot;</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="PRIVATELINE"/>
+                                          <xs:enumeration value="ETH"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="siteDescription">
+                    <xs:annotation>
+                      <xs:documentation>This value represents the displayed name of site description. For Example: Any name given by user with maximum of 1000 charaters.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="cosProductIndicator" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>This contains whether the Site includes a Cos product or not.
+True if Cos product is available 
+False if Cos Product is not available</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="NetworkSitePriceRequest">
+              <xs:annotation>
+                <xs:documentation>This is a complex type that encapsulates both the product selections for the network site as well as the information needed from the consumer to price those product selections.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="region">
+                    <xs:annotation>
+                      <xs:documentation>This value represents the region for which the price is  being requested for. The type for this field is an enumeration with the allowed values ?INREGION? and ?OUTOFREGION?.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="INREGION"/>
+                        <xs:enumeration value="OUTOFREGION"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="popCLLI">
+                    <xs:annotation>
+                      <xs:documentation>this field will be used to pass the POP-CLLI for the requested address</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="swcCLLI">
+                    <xs:annotation>
+                      <xs:documentation>this field will be used to pass the SWC-CLLI for the requested address</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="lecName">
+                    <xs:annotation>
+                      <xs:documentation>this field will be user to pass the LEC NAME for the requested address</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="networkFriendlyName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="mileage" type="xs:int">
+                    <xs:annotation>
+                      <xs:documentation>This field is used by the consumer to pass the mileage (whole number only) for the site?s address. This is required for Pricing.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="interfaceType">
+                    <xs:annotation>
+                      <xs:documentation>This value represents the interfaceType  for the Ethernet Speed. The type for this field is an enumeration with the allowed values ?ELECTRICAL?, &quot;OPTICAL_SINGLE&quot;and ?OPTICAL_DUAL?.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="ELECTRICAL"/>
+                        <xs:enumeration value="OPTICAL_SINGLE"/>
+                        <xs:enumeration value="OPTICAL_DUAL"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RdsInformationDetails">
+              <xs:annotation>
+                <xs:documentation>This is a complex type that encapsulates the RDS Details that are required for the RDS flow.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="InstallationDetails">
+                    <xs:annotation>
+                      <xs:documentation>This contains the Site Install Priority,the CustomerPurchase Date and Customer Requirement Due date.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="customerPurchaseDate">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="customerRequestDueDate">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="siteInstallPriority" type="xs:int"/>
+                        <xs:element name="refuseEarlyServiceIndicator" type="xs:boolean"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="additionalInfoReq">
+                    <xs:annotation>
+                      <xs:documentation>This is an additional optional field for contingencies. It is not validated and is currently unused. Its type is a 200 character length restricted string.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ContactDetails">
+                    <xs:annotation>
+                      <xs:documentation>This contains the contact Info which included the Primary and Secondary Contact Details.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="primaryFirstName">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="80"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="primaryLastName">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="80"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="primaryEmail">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="primaryPhoneNumber" type="cng:TelephoneNumberInfo"/>
+                        <xs:element name="primaryCellNumber" type="cng:TelephoneNumberInfo"/>
+                        <xs:element name="alternateFirstName">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="alternateTelePhoneNumber" type="cng:TelephoneNumberInfo"/>
+                        <xs:element name="alternateCellNumber" type="cng:TelephoneNumberInfo"/>
+                        <xs:element name="alternateLastName">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="alternateEmail">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="cosProductIndicator" type="xs:boolean">
+                    <xs:annotation>
+                      <xs:documentation>This contains whether the Site includes a Cos product or not.
+True if Cos product is available 
+False if Cos Product is not available</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="AccessFeaturesOptions">
+                    <xs:annotation>
+                      <xs:documentation>This contains the access speed and Total service Info Details.The TotalServiceInfo is a complex type containing Information about AccessProvider, AccessMethodType, PhysicalInterface, notesForAccessInstaller and VpnConnection policy.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="accessSpeed">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="TotalServiceDetails">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="accessMethodType">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="80"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="physicalInterface">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="40"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="notesForAccessInstaller">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="vpnConnectionPolicy">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="40"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="accessProvider">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="provisionAccessArrangement">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="configureSiteStatus">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="percentage">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SiteSelectionDetails">
+                    <xs:annotation>
+                      <xs:documentation>Represents the selections for port and its access speed which the consumer wishes to price. </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SpeedDetails" type="cng:SpeedInfo">
+                          <xs:annotation>
+                            <xs:documentation>Details related to network speed. speedName, speedPhysicalValue and speedUnit are required for this service.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="ProductTypeDetails" type="cng:SpeedProductTypeInfo"/>
+                        <xs:element name="NetworkSpeedDetails">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="managedPortIndicator" type="xs:boolean">
+                                <xs:annotation>
+                                  <xs:documentation>This flag represents whether the port should be priced as a managed or an un-managed port.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                              <xs:element name="networkSpeedType">
+                                <xs:annotation>
+                                  <xs:documentation>Represents the network speed type. Valid values: &quot;T1&quot;, &quot;T3&quot;, &quot;ETH&quot;</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="T1"/>
+                                    <xs:enumeration value="T3"/>
+                                    <xs:enumeration value="ETH"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="SelectedAccessSpeedDetails">
+                                <xs:annotation>
+                                  <xs:documentation>Represents the Access Speed selected for the port. This is optional since the APEX Portal permits its users to buy a port without access.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="AccessSpeedDetails" type="cng:SpeedInfo">
+                                      <xs:annotation>
+                                        <xs:documentation>Details related to access speed. speedName,  speedPhysicalValue and speedUnit are required for this service.</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="ProductTypeDetails" type="cng:SpeedProductTypeInfo"/>
+                                    <xs:element name="accessSpeedType">
+                                      <xs:annotation>
+                                        <xs:documentation>Represents the access speed type. Valid values: &quot;PRIVATELINE&quot;, &quot;ETH&quot;</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="PRIVATELINE"/>
+                                          <xs:enumeration value="ETH"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AVPNPortDetails">
+                    <xs:annotation>
+                      <xs:documentation>The Avpn port Info contains the vpnConnectionPolicy,vpn Name,vlanTagControl, internetProtocol, isPortUnilink,vlanCount and MultiCast.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="vpnConnectionPolicy">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="anyToAny"/>
+                              <xs:enumeration value="hubAndSpoke"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="vpnName">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="vlanTagControl">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="noneArpa"/>
+                              <xs:enumeration value="single"/>
+                              <xs:enumeration value="stacking"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="internetProtocol">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="ipv4"/>
+                              <xs:enumeration value="ipv6"/>
+                              <xs:enumeration value="dualStack"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="portUnilinkIndicator" type="xs:boolean"/>
+                        <xs:element name="vlanCount" type="xs:int"/>
+                        <xs:element name="multicast" type="xs:int"/>
+                        <xs:element minOccurs="0" name="vpnConnectionType">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="hub"/>
+                              <xs:enumeration value="spoke"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element maxOccurs="12" minOccurs="0" name="LogicalChannelInformation">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="vlanspeedSelected">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="vpnName">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="vLanCERAddress">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="vLanPERAddress">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="vLanSubnetMask">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="enableMulticastIndicator" type="xs:boolean"/>
+                              <xs:element name="bVoIPIndicator" type="xs:boolean"/>
+                              <xs:element name="bVoIPCompressedIndicator" type="xs:boolean"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="PortDetails">
+                    <xs:annotation>
+                      <xs:documentation>the PortDetailsInfo contains the Testing Router,tag control,ipAddress,attHostedDNS and domain URL.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="hasTestingRouterIndicator" type="xs:boolean"/>
+                        <xs:element name="tagControl">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ipAddress">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="attHostedDNSIndicator" type="xs:boolean"/>
+                        <xs:element name="domainURL">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="internetProtocol">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="ipv4"/>
+                              <xs:enumeration value="ipv6"/>
+                              <xs:enumeration value="dualStack"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="migrateIPIndicator" type="xs:boolean"/>
+                        <xs:element minOccurs="0" name="migratingIPs" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="UnmanagedRouterEquipmentDetails">
+                    <xs:annotation>
+                      <xs:documentation>The UnManagedRouterEquipmentsDetails contains the information about routerType,vendor,model ,routerClass and version.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="routerType">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="poe24Port"/>
+                              <xs:enumeration value="eta8Port"/>
+                              <xs:enumeration value="poe8Port"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="vendor">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="cisco"/>
+                              <xs:enumeration value="attbib01"/>
+                              <xs:enumeration value="other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="model">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="routerClass">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="version">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="AttRouterShipDetails">
+                    <xs:annotation>
+                      <xs:documentation>This contains the shipping address  including the business Telephone number.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="firstName">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="lastName">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="address1">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="floorNumber" type="xs:int"/>
+                        <xs:element name="roomNumber" type="xs:int"/>
+                        <xs:element name="city">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="state">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="postalcode">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="businessTelephoneNumber">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Ipv4Details" type="cng:IpvInfo">
+                    <xs:annotation>
+                      <xs:documentation>contains the ipv4 Details for a specific site.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Ipv6Details" type="cng:IpvInfo">
+                    <xs:annotation>
+                      <xs:documentation>contains the ipv6 Details for a specific site.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="ClassOfServiceDetails">
+                    <xs:annotation>
+                      <xs:documentation>Contains the costProfile and the RealTime Cos Percentage</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="cosProfile">
+                          <xs:annotation>
+                            <xs:documentation>1)Combination of COS Profiles Allowed For AVPN:
+
+Real Time Cos Percentage	List of Allowed Values for Cos Profile
+0	&apos;24185&apos;,&apos;24186&apos;,&apos;24187&apos;,&apos;24188&apos;,&apos;24189&apos;,&apos;24461&apos;,&apos;24462&apos;,&apos;24463&apos;,&apos;24464&apos;
+50 	&apos;7625&apos;,&apos;7626&apos;,&apos;7627&apos;,&apos;7628&apos;
+90	&apos;1001&apos;,&apos;1002&apos;,&apos;1003&apos;,&apos;1004&apos;
+
+
+2) Combination of COS Profiles Allowed for MIS
+
+Real Time Cos Percentage	List of Allowed Values for Cos Profile
+
+0	?119?,?120?,?121?,?123?,?124?
+10	?115?,?116?,?117?
+20	?112?,?113?,?114?
+40	?109?,?110?,?111
+50	?108?
+60	?105?,?106?,?107?
+80	?102?,?103?,?104?
+90	?101?
+
+
+NOTE:In case multiple values are being requested then please do send comma separated values.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="200"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="cosRealtimePercent" type="xs:int"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="unilinkIndicator" type="cng:BooleanTrueInfo">
+              <xs:annotation>
+                <xs:documentation>True if port is Unilink  
+False if port is not Unilink</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EndCustomerDetails">
+        <xs:annotation>
+          <xs:documentation>Contains the End Customer Information</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="legalName">
+              <xs:annotation>
+                <xs:documentation>This field holds the legal name of the End Customer .</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="addressLine1">
+              <xs:annotation>
+                <xs:documentation>This value represents Address line one information. For Example: Any name given by user with maximum of 200 charaters.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="addressLine2">
+              <xs:annotation>
+                <xs:documentation>This value represents Address line two information. For Example: Any name given by user with maximum of 200 charaters.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="city">
+              <xs:annotation>
+                <xs:documentation>This value represents City. For Example: Valid City Name ?Dallas? </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="state">
+              <xs:annotation>
+                <xs:documentation>This value represents State. For Example: Valid State Name ?TX?</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="zipCode" type="cng:AddressZipCodeInfo">
+              <xs:annotation>
+                <xs:documentation>This value represents PostalCode. For Example: Valid Postal/Zip code ?75075?</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="duns">
+              <xs:annotation>
+                <xs:documentation>This value is a unique identification number, for each physical location of business</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="companyURL">
+              <xs:annotation>
+                <xs:documentation>This field holds the Company URL of the End Customer.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="commitmentTerm">
+        <xs:annotation>
+          <xs:documentation>This is an enumeration that is used to represent the commitment terms supported for network products. Allowed values include: 1YR and 3YR (one year and three years respectively).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ONEYR"/>
+            <xs:enumeration value="THREEYR"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="status">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

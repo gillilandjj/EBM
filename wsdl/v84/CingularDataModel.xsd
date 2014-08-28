@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+ xmlns='http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd'
+ targetNamespace='http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd'
+ elementFormDefault='qualified'
+ version='84.0.149'>
+  <xs:simpleType name='AddressCityInfo'>
+    <xs:annotation>
+      <xs:documentation>The City of this address.Mandatory only when Address type = &apos;Street&apos;, &apos;Military&apos;, &apos;P.O. Box&apos;, or &apos;Rural Route&apos;.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='40'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='AddressCountryInfo'>
+    <xs:annotation>
+      <xs:documentation>International standard (ISO) 2-character country code.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:length value='2'/>
+      <xs:pattern value='[A-Z]{2}'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='AddressCountyDescriptionInfo'>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='35'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='AddressLineInfo'>
+    <xs:annotation>
+      <xs:documentation>Not all systems will be able to accept or return this number of characters for an address line.  Some Cingular systems are more restrictive on address line length than what is shown here.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='120'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='AddressStateInfo'>
+    <xs:annotation>
+      <xs:documentation>State abbreviation</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='2'/>
+      <xs:enumeration value='JA'/>
+      <xs:enumeration value='AL'/>
+      <xs:enumeration value='AK'/>
+      <xs:enumeration value='AZ'/>
+      <xs:enumeration value='AR'/>
+      <xs:enumeration value='CA'/>
+      <xs:enumeration value='CO'/>
+      <xs:enumeration value='CT'/>
+      <xs:enumeration value='DE'/>
+      <xs:enumeration value='DC'/>
+      <xs:enumeration value='FL'/>
+      <xs:enumeration value='GA'/>
+      <xs:enumeration value='HI'/>
+      <xs:enumeration value='ID'/>
+      <xs:enumeration value='IL'/>
+      <xs:enumeration value='IN'/>
+      <xs:enumeration value='IA'/>
+      <xs:enumeration value='KS'/>
+      <xs:enumeration value='KY'/>
+      <xs:enumeration value='LA'/>
+      <xs:enumeration value='ME'/>
+      <xs:enumeration value='MD'/>
+      <xs:enumeration value='MA'/>
+      <xs:enumeration value='MI'/>
+      <xs:enumeration value='MN'/>
+      <xs:enumeration value='MS'/>
+      <xs:enumeration value='MO'/>
+      <xs:enumeration value='MT'/>
+      <xs:enumeration value='NE'/>
+      <xs:enumeration value='NV'/>
+      <xs:enumeration value='NH'/>
+      <xs:enumeration value='NJ'/>
+      <xs:enumeration value='NM'/>
+      <xs:enumeration value='NY'/>
+      <xs:enumeration value='NC'/>
+      <xs:enumeration value='ND'/>
+      <xs:enumeration value='OH'/>
+      <xs:enumeration value='OK'/>
+      <xs:enumeration value='OR'/>
+      <xs:enumeration value='PA'/>
+      <xs:enumeration value='RI'/>
+      <xs:enumeration value='SC'/>
+      <xs:enumeration value='SD'/>
+      <xs:enumeration value='TN'/>
+      <xs:enumeration value='TX'/>
+      <xs:enumeration value='UT'/>
+      <xs:enumeration value='VT'/>
+      <xs:enumeration value='VA'/>
+      <xs:enumeration value='WA'/>
+      <xs:enumeration value='WV'/>
+      <xs:enumeration value='WI'/>
+      <xs:enumeration value='WY'/>
+      <xs:enumeration value='AB'/>
+      <xs:enumeration value='BC'/>
+      <xs:enumeration value='DR'/>
+      <xs:enumeration value='MB'/>
+      <xs:enumeration value='MX'/>
+      <xs:enumeration value='NB'/>
+      <xs:enumeration value='NF'/>
+      <xs:enumeration value='NS'/>
+      <xs:enumeration value='ON'/>
+      <xs:enumeration value='PE'/>
+      <xs:enumeration value='PQ'/>
+      <xs:enumeration value='PR'/>
+      <xs:enumeration value='SK'/>
+      <xs:enumeration value='VI'/>
+      <xs:enumeration value='DF'/>
+      <xs:enumeration value='NA'/>
+      <xs:enumeration value='GT'/>
+      <xs:enumeration value='PU'/>
+      <xs:enumeration value='YA'/>
+      <xs:enumeration value='SN'/>
+      <xs:enumeration value='BA'/>
+      <xs:enumeration value='AP'/>
+      <xs:enumeration value='CL'/>
+      <xs:enumeration value='AA'/>
+      <xs:enumeration value='BI'/>
+      <xs:enumeration value='PB'/>
+      <xs:enumeration value='AG'/>
+      <xs:enumeration value='BN'/>
+      <xs:enumeration value='CI'/>
+      <xs:enumeration value='CP'/>
+      <xs:enumeration value='CS'/>
+      <xs:enumeration value='DU'/>
+      <xs:enumeration value='GJ'/>
+      <xs:enumeration value='GR'/>
+      <xs:enumeration value='HD'/>
+      <xs:enumeration value='HK'/>
+      <xs:enumeration value='MC'/>
+      <xs:enumeration value='MR'/>
+      <xs:enumeration value='NL'/>
+      <xs:enumeration value='NZ'/>
+      <xs:enumeration value='OX'/>
+      <xs:enumeration value='QT'/>
+      <xs:enumeration value='QR'/>
+      <xs:enumeration value='SL'/>
+      <xs:enumeration value='SO'/>
+      <xs:enumeration value='TA'/>
+      <xs:enumeration value='TB'/>
+      <xs:enumeration value='TL'/>
+      <xs:enumeration value='VE'/>
+      <xs:enumeration value='YC'/>
+      <xs:enumeration value='ZA'/>
+      <xs:enumeration value='ZZ'/>
+      <xs:enumeration value='AE'/>
+      <xs:enumeration value='BE'/>
+      <xs:enumeration value='YT'/>
+      <xs:enumeration value='AS'/>
+      <xs:enumeration value='FM'/>
+      <xs:enumeration value='GM'/>
+      <xs:enumeration value='MH'/>
+      <xs:enumeration value='NO'/>
+      <xs:enumeration value='PL'/>
+      <xs:enumeration value='UM'/>
+      <xs:enumeration value='VZ'/>
+      <xs:enumeration value='CE'/>
+      <xs:enumeration value='CR'/>
+      <xs:enumeration value='LM'/>
+      <xs:enumeration value='TE'/>
+      <xs:enumeration value='FS'/>
+      <xs:enumeration value='FN'/>
+      <xs:enumeration value='CN'/>
+      <xs:enumeration value='GU'/>
+      <xs:enumeration value='MP'/>
+      <xs:enumeration value='PW'/>
+      <xs:enumeration value='NT'/>
+      <xs:enumeration value='NU'/>
+      <xs:enumeration value='QC'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='AddressUrbanizationInfo'>
+    <xs:annotation>
+      <xs:documentation>An urbanization denotes an area, sector, or residential development within a geographic area. In addition to being a descriptive word, it precedes the name of that area. This descriptor, commonly used in Puerto Rican urban areas, is an important part of the addressing format as it describes the location of a given street.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='30'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='AddressZipCodeInfo'>
+    <xs:annotation>
+      <xs:documentation>Zip code</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:minLength value='5'/>
+      <xs:maxLength value='9'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='BooleanTrueInfo'>
+    <xs:restriction base='xs:boolean'>
+      <xs:pattern value='true'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='DateTimeWithTimezoneInfo'>
+    <xs:annotation>
+      <xs:documentation>Designates a date/time stamp in UTC format. The following formats are accepted: YYYY-MM-DDThh:mm:ssZ or YYYY-MM-DDThh:mm:ss.xxxZ
+                Where :
+                 - YYYY indicates the year
+                 - MM indicates the month
+                 - DD indicates the day
+                 - T is a fixed character, indicating the time section
+                 - hh indicates the hour, zero pre-pended
+                 - mm indicates the minute, zero pre-pended
+                 - ss indicates the second, zero pre-pended
+                 - xxx indicates the millisecond, zero pre-pended
+                 - Z is a fixed character, indicating UTC time zone</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:dateTime'>
+      <xs:pattern value='.+T.+Z'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='DateWithTimezoneInfo'>
+    <xs:annotation>
+      <xs:documentation>Designates a date in UTC format. The following formats is accepted: YYYY-MM-DDZ
+                Where :
+                 - YYYY indicates the year
+                 - MM indicates the month
+                 - DD indicates the day
+                 - Z is a fixed character, indicating UTC time zone</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:date'>
+      <xs:pattern value='.+Z'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='LatitudeInfo'>
+    <xs:annotation>
+      <xs:documentation>The geographic longitudinal position in degrees and minutes</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:double'/>
+  </xs:simpleType>
+  <xs:simpleType name='LongitudeInfo'>
+    <xs:annotation>
+      <xs:documentation>The Geographic longitudinal position in degrees and minutes</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:double'/>
+  </xs:simpleType>
+  <xs:simpleType name='PremiseIdInfo'>
+    <xs:annotation>
+      <xs:documentation>The PremiseID will get generated by GRID.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='20'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='TelephoneNumberInfo'>
+    <xs:annotation>
+      <xs:documentation>Standard 10 digit Telephone Number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:length value='10'/>
+      <xs:pattern value='\d{10}'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='ZipCodeExtensionInfo'>
+    <xs:annotation>
+      <xs:documentation>Zip code extension used with Zip+4</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:length value='4'/>
+      <xs:pattern value='\d{4}'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='ZipCodeInfo'>
+    <xs:annotation>
+      <xs:documentation>Standard Zip Code</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:length value='5'/>
+      <xs:pattern value='\d{5}'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name='AddressGeocodeCoordinatesInfo'>
+    <xs:sequence>
+      <xs:element name='latitude' type='LatitudeInfo'>
+        <xs:annotation>
+          <xs:documentation>X coordinate</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='longitude' type='LongitudeInfo'>
+        <xs:annotation>
+          <xs:documentation>Y coordinate</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='AddressMatchInfo'>
+    <xs:sequence>
+      <xs:element name='street' type='AddressLineInfo'/>
+      <xs:element name='city' type='AddressCityInfo' minOccurs='0'/>
+      <xs:element name='county' type='AddressCountyDescriptionInfo' minOccurs='0'/>
+      <xs:element name='urbanization' type='AddressUrbanizationInfo' minOccurs='0'/>
+      <xs:element name='state' type='AddressStateInfo' minOccurs='0'/>
+      <xs:element name='Zip' type='AddressZipInfo' minOccurs='0'/>
+      <xs:element default='US' name='Country' type='AddressCountryInfo' minOccurs='0'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='AddressZipInfo'>
+    <xs:sequence>
+      <xs:element name='zipCode' type='ZipCodeInfo'/>
+      <xs:element name='zipCodeExtension' type='ZipCodeExtensionInfo' minOccurs='0'/>
+      <xs:element name='zipGeoCode' minOccurs='0'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='10'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='IpvInfo'>
+    <xs:annotation>
+      <xs:documentation>This represents the Product Type Information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='ipvCERAddress' minOccurs='0'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='200'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='ipvPERAddress' minOccurs='0'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='200'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='ipvSubnetMask' minOccurs='0'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='200'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='autonomousSysNum' type='xs:int'/>
+      <xs:element name='aSNOverrideIndicator' type='xs:boolean'/>
+      <xs:element name='restrictiveRoutingIndicator' type='xs:boolean'/>
+      <xs:element name='ipvRoutingProtocol'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='200'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='lanBlocksNumber' type='xs:int' minOccurs='0'/>
+      <xs:element name='IpvLanInfo' maxOccurs='20'>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name='lanATTCustomerIndicator' type='xs:boolean'/>
+            <xs:element name='lanIpAddress' minOccurs='0'>
+              <xs:simpleType>
+                <xs:restriction base='xs:string'>
+                  <xs:maxLength value='200'/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name='lanlength'>
+              <xs:simpleType>
+                <xs:restriction base='xs:string'>
+                  <xs:maxLength value='200'/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name='packetFilter' minOccurs='0'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='urpf'/>
+            <xs:enumeration value='saa'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='md5AuthenticationIndicator' type='BooleanTrueInfo' minOccurs='0'/>
+      <xs:element name='Md5Password' minOccurs='0'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='200'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='ipvRouteAdvertisements' minOccurs='0'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='ATT_Routes'/>
+            <xs:enumeration value='Default_Candidate_Routes'/>
+            <xs:enumeration value='Full_Internet_Route'/>
+            <xs:enumeration value='Default_Route'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ItemPriceInfo'>
+    <xs:annotation>
+      <xs:documentation>This represents the price of the Port or Access Speed</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='listPriceMRC'>
+        <xs:annotation>
+          <xs:documentation>This represents the MRC (Monthly Recurring Charge)for the item. If the item does not have an MRC then the value returned will be ?0.0?</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='40'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='listPriceNRC'>
+        <xs:annotation>
+          <xs:documentation>This represents the NRC for the item. If the item does not have an NRC(Non Recurring Charge) then the value returned will be ?0.0?</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='40'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='listPriceMRCDiscount' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>This represents the MRC (Monthly Recurring Charge) Discount for the item</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='40'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='listPriceNRCDiscount' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>This represents the NRC Discount for the item.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='40'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='MessageHeaderSecurity'>
+    <xs:sequence>
+      <xs:element name='userName' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>The user name that will be used for authentication/authorization</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='userPassword' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>The password that will be used for authentication/authorization</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='MessageHeaderSequence'>
+    <xs:sequence>
+      <xs:element name='sequenceNumber' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>The sequence number of the current messages as part of a series of messages. For example if one request results in multiple responses then each response will have a different sequence number since they are all part of the same request.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='totalInSequence' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>The total number of messages as part of a series of messages. For example if one request results in multiple responses then each response will contain the total number of messages since they are all part of the same request.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='MessageHeaderTracking'>
+    <xs:sequence>
+      <xs:element name='infrastructureVersion' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>This element designates the infrastructure version;
+                                                                            MessageHeader, SoapFault, ErrorResponse, for interaction.
+                                                    Please do not populate it if your service is not CDM service.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='originalInfrastructureVersion' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>This element designates the infrastructureVersion for the original request the client passed in.
+                                                                            This field should not be populated by the client.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='applicationName' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>This element designates the applicationName for the request the client passed in.
+					Please do not populate it if your service is not CDM service.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='256'/>
+            <xs:pattern value='([a-zA-Z])*'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='version' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>This element designates the CSI version for the interaction.
+                                                     The message header is combined with the actual payload in a JMS message or a SOAP message, hence the entire interaction is versioned using this parameter.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='originalVersion' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>This element designates the CSI version for the original request the client passed in.
+                                                    This field should not be populated by the client.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='messageId' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>This is a unique message identifier (UUID) for each message. A number (GUID) generator can be used for this.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='originatorId' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>The field is supposed to be used by broker entities that communicate with CSI on behalf of some other client. Clients that directly interact with CSI should not populate this field when sending messages.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='responseTo' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>If the message is sent as a response to some &quot;request&quot; then this field must contain the messageId of the original &quot;request&quot; message.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='returnURL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Identifies the URL to which any asynchronous response to this message should be delivered.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='timeToLive' type='xs:integer' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>The maximum time in seconds the receiving entity should try to process this message. Values may be limited by receiving entity.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='conversationId' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>If this message is part of a larger transaction or part of a series of messages all of which are part of the same &quot;session&quot; then this field must be used to designate that transaction/session. This ID will be uniquely identified and will be the same for all messages that participate in the transaction/session.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='routingRegionOverride' maxOccurs='unbounded' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Routing Region Override key use by some services to override target region for request. It is only enabled in QC environemnt, not enabled in prodcution enviornment.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='dateTimeStamp' type='DateTimeWithTimezoneInfo'>
+        <xs:annotation>
+          <xs:documentation>See underlying type for details on the format expected.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='uniqueTransactionId' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Uniqure Transaction id to track a transaction through the CSI stack. This will also be returned to the clients.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='NetworkAccessSpeedInfo'>
+    <xs:annotation>
+      <xs:documentation>This object represents the base item for ATT Network Services Access Speed, i.e. AVPN/MIS/MPLS Port and Access speeds. Port Speed and Access Speed types for ATT Network Services will be created from the Network Speed Info since they share the same types (a.k.a. port type or access type). We cannot use the Network Speed Info type for ATT Internet Services&apos; speeds since they do not share the same technology.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='networkAcessSpeedType'>
+        <xs:annotation>
+          <xs:documentation>This field is used to pass the networkAccessSpeedType for Access Speeds. The type for this field is an enumeration with the following values. 
+
+PRIVATELINE
+ETH
+
+NOTE:
+T1: Private Line T1
+T3: Private Line T3
+ETH: Ethernet</xs:documentation>
+          <xs:documentation/>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='PRIVATELINE'/>
+            <xs:enumeration value='ETH'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='productType'>
+        <xs:annotation>
+          <xs:documentation>This field is used to pass the productType. Its type is an enumeration (same as was used in the request) with the allowed values ?AVPN?, ?MIS? and &quot;MPLS-PNT&quot;</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='AVPN'/>
+            <xs:enumeration value='MIS'/>
+            <xs:enumeration value='MPLS-PNT'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='NetworkServiceAvailability'>
+    <xs:sequence>
+      <xs:element name='transportType'>
+        <xs:annotation>
+          <xs:documentation>Valid Values:
+Ethernet
+PrivateLine</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='Ethernet'/>
+            <xs:enumeration value='PrivateLine'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='Speed' maxOccurs='4' type='SpeedInfo'/>
+      <xs:element name='quantity' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>The quantity of circuits being requested or offered. Must be populated when a network service is being requested or offered with multiple circuits. Ex: for 4xT1, value would be 4.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:positiveInteger'>
+            <xs:totalDigits value='2'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='NetworkTransportSpeedInfo'>
+    <xs:annotation>
+      <xs:documentation>This object represents the base item for ATT Network Services Speed, i.e. AVPN/MIS/MPLS Port and Access speeds. Port Speed and Access Speed types for ATT Network Services will be created from the Network Speed Info since they share the same types (a.k.a. port type or access type). We cannot use the Network Speed Info type for ATT Internet Services&apos; speeds since they do not share the same technology.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='networkTransportSpeedType'>
+        <xs:annotation>
+          <xs:documentation>This field is used to pass the networkSpeedType for  Transport(Port) Speeds. The type for this field is an enumeration with the following values. 
+
+T1
+T3
+ETH
+
+NOTE:
+T1: Private Line T1
+T3: Private Line T3
+ETH: Ethernet</xs:documentation>
+          <xs:documentation/>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='T1'/>
+            <xs:enumeration value='T3'/>
+            <xs:enumeration value='ETH'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='productType'>
+        <xs:annotation>
+          <xs:documentation>This field is used to pass the productType. Its type is an enumeration (same as was used in the request) with the allowed values ?AVPN?, ?MIS? and &quot;MPLS-PNT&quot;</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='AVPN'/>
+            <xs:enumeration value='MIS'/>
+            <xs:enumeration value='MPLS-PNT'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ResponseInfo'>
+    <xs:sequence>
+      <xs:element name='code' type='xs:string'/>
+      <xs:element name='description' type='xs:string'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='SpeedInfo'>
+    <xs:annotation>
+      <xs:documentation>This object represents the base item that is the Speed. This is extended to create Network Speed Info which is intended to be the base type for the speeds for ATT Network Services. Port Speed and Access Speed types 
+for ATT Network Services will be created from the Network Speed Info since they share the same types(a.k.a. port type or access type). As of 9/22/2013 this Interface supports only AVPN/MIS/MPLS so ATT Internet 
+Services&apos; (a.k.a Broadband) speeds are not defined. However this object must be extended to create the speed items for ATT Internet Services as well. We cannot use the Network Speed Info type for ATT Internet Services&apos; speeds since they do not share the same technology.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='speedName' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>This value represents the displayed name of speed . For Ex. T1 1.544 Mbps is the name for T1 Speed
+
+Required for the Pricing services, but optional for ServiceAvailability</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='100'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='speedPhysicalValue'>
+        <xs:annotation>
+          <xs:documentation>This value represents the physical value of a speed.      
+Below are sample values for Service Availability based on transport type:
+
+PrivateLine:
+  Valid Values:
+      T1, T3, OC
+
+Ethernet:
+   Sample Values:
+       100, 1000, etc..</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='100'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='speedUnit' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>This value represents the unit of a speed. For Ex. T1 1.544 Mbps will have unit as Mbps
+
+Valid Values:
+MBPS
+
+Required for the Pricing services.  Required for ServiceAvailability when TransportType is Ethernet and optional when PrivateLine.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='40'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='SpeedProductTypeInfo'>
+    <xs:annotation>
+      <xs:documentation>This represents the Product Type Information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='id' minOccurs='0'>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:maxLength value='40'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='productType'>
+        <xs:annotation>
+          <xs:documentation>This represents the family for the product being returned. Its type is an enumeration with the allowed values AVPN and , MIS.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='AVPN'/>
+            <xs:enumeration value='MIS'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

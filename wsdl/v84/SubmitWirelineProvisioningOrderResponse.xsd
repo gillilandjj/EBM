@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/SubmitWirelineProvisioningOrderResponse.xsd" version="84.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/SubmitWirelineProvisioningOrderResponse.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="SubmitWirelineProvisioningOrderResponse" type="SubmitWirelineProvisioningOrderResponseInfo">
+    <xs:annotation>
+      <xs:documentation>The  interface is to enable the SP user to order AVPN and MIS in ATT Partner Exchange portal</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SubmitWirelineProvisioningOrderResponseInfo">
+    <xs:annotation>
+      <xs:documentation>The  interface is to enable the SP user to order AVPN and MIS in ATT Partner Exchange portal</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="orderId">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="OrderProvisioningSitePriceDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="siteNumber">
+              <xs:annotation>
+                <xs:documentation>this value represents the displayed name of siteNumber in the APEX Catalog and It should be unique. For Example: Site number as ?site1? with maximum of 10 characters. </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="10"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="SitePortListPrice" type="cng:ItemPriceInfo">
+              <xs:annotation>
+                <xs:documentation>this represents the price of the Port Speed for the request.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="subTotalDiscount" type="xs:double">
+              <xs:annotation>
+                <xs:documentation>this represents the sub total discount offered to the user. </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="subTotalPrice" type="xs:double">
+              <xs:annotation>
+                <xs:documentation>this represents the sub total Price of the order. </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="SiteAccessListPrice" type="cng:ItemPriceInfo">
+              <xs:annotation>
+                <xs:documentation>this represents the price of the Access Speed for the request. This item is marked as optional since the APEX permits IPQ Requests with just port in the site. APEX Portal permits its users to buy sites without access speeds with just port speeds.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CosPrice" type="cng:ItemPriceInfo">
+              <xs:annotation>
+                <xs:documentation>this represents the Cos Price. This item is marked as optional since the APEX permits orders with or without COS selected in the site. </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="UnilinkPrice" type="cng:ItemPriceInfo">
+              <xs:annotation>
+                <xs:documentation>this represents the Unilink Price. This item is marked as optional since the APEX permits orders with or without Unilink selected in the site.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="installationPrice" type="xs:double">
+              <xs:annotation>
+                <xs:documentation>this represents the Installation Price. </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="totalDiscount" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>this represents the total discount offered to the user.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalPrice" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>this represents the total Price of the order. </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contractualLanguage" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>this field would hold the contractual verbiage for price Acknowledgement.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Response" type="cng:ResponseInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

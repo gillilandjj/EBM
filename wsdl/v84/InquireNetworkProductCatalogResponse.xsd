@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductCatalogResponse.xsd" version="84.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductCatalogResponse.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="InquireNetworkProductCatalogResponse" type="InquireNetworkProductCatalogResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to provide price catalog to SP users.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InquireNetworkProductCatalogResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to provide price catalog to SP users</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="AvailableTransportSpeedsDetails">
+        <xs:annotation>
+          <xs:documentation>This object represents the Network Transport Speed items. This is used for AVPN,MIS and MPLS transport speed items.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SpeedDetails" type="cng:SpeedInfo">
+              <xs:annotation>
+                <xs:documentation>This object represents the base item that is the Speed. This is extended to create Network Speed Info which is intended to be the base type for the speeds for ATT Network Services. Port Speed and Access Speed types for ATT Network Services will be created from the Network Speed Info since they share the same types(a.k.a. port type or access type). As of 9/22/2013 this Interface supports only AVPN/MIS/MPLS so ATT Internet 	Services&apos; (a.k.a Broadband) speeds are not defined. However this object must be extended to create the speed items for ATT Internet Services as well. We cannot use the Network Speed Info type for ATT Internet Services&apos; speeds since they do not share the same technology.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="NetworkSpeedDetails" type="cng:NetworkTransportSpeedInfo">
+              <xs:annotation>
+                <xs:documentation>This object represents the base item for ATT Network Services Speed, i.e. AVPN/MIS/MPLS Port and Access speeds.Port Speed and Access Speed types for ATT Network Services will be created from the Network Speed Info since they share the same types (a.k.a. port type or access type). We cannot use the Network Speed Info type for ATT Internet Services&apos; speeds since they do not share the same technology.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="LinkedAccessSpeedDetails">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SpeedDetails" type="cng:SpeedInfo">
+                    <xs:annotation>
+                      <xs:documentation>This object represents the base item that is the Speed. This is extended to create Network Speed Info which is intended to be the base type for the speeds for ATT Network Services. Port Speed and Access Speed types for ATT Network Services will be created from the Network Speed Info since they share the same types(a.k.a. port type or access type). As of 9/22/2013 this Interface supports only AVPN/MIS/MPLS so ATT Internet 	Services&apos; (a.k.a Broadband) speeds are not defined. However this object must be extended to create the speed items for ATT Internet Services as well. We cannot use the Network Speed Info type for ATT Internet Services&apos; speeds since they do not share the same technology.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="NetworkSpeedDetails" type="cng:NetworkAccessSpeedInfo">
+                    <xs:annotation>
+                      <xs:documentation>This object represents the base item for ATT Network Services Speed, i.e. AVPN/MIS/MPLS Port and Access speeds.Port Speed and Access Speed types for ATT Network Services will be created from the Network Speed Info since they share the same types (a.k.a. port type or access type). We cannot use the Network Speed Info type for ATT Internet Services&apos; speeds since they do not share the same technology.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="AvailableASEPortSpeeds">
+        <xs:annotation>
+          <xs:documentation>This object represents the Availabe ASE Port Speeds.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="speedName">
+              <xs:annotation>
+                <xs:documentation>AccessSpeedName</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="speedInMbps" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>AccessPricingNotes</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="supportedServiceArrangement">
+              <xs:annotation>
+                <xs:documentation>Supported Service Arrangement</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="SupportedCirSpeedXrefs">
+              <xs:annotation>
+                <xs:documentation>Supported Cir Speed Xrefs</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="xrefedCirSpeedName">
+                    <xs:annotation>
+                      <xs:documentation>Supported Cir Speed Xref</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="AvailableASECirSpeeds">
+        <xs:annotation>
+          <xs:documentation>This object represents the Availabe ASE Cir Speeds.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="speedName">
+              <xs:annotation>
+                <xs:documentation>AccessSpeedName</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="200"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="speedInMbps" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>AccessPricingNotes</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="SupportedCosList">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="cosPackageName">
+                    <xs:annotation>
+                      <xs:documentation>Cos Package Name</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="cosPackageType">
+                    <xs:annotation>
+                      <xs:documentation>Cos Package Type</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="supportedServiceArrangement">
+                    <xs:annotation>
+                      <xs:documentation>Supported Service Arrangement</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="cosProfileIds">
+                    <xs:annotation>
+                      <xs:documentation>Cos Profile Ids</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="additionalNotes">
+        <xs:annotation>
+          <xs:documentation>Additional Notes in Response</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Warning" type="cng:ResponseInfo"/>
+      <xs:element name="Response" type="cng:ResponseInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

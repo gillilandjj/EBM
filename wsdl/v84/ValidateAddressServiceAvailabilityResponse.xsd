@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressServiceAvailabilityResponse.xsd" version="76.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressServiceAvailabilityResponse.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="ValidateAddressServiceAvailabilityResponse" type="ValidateAddressServiceAvailabilityResponseInfo"/>
+  <xs:complexType name="ValidateAddressServiceAvailabilityResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface will provide Address validation to the client from OVALS (Backend) and after that it will provide Service availability for the exact match to the client from ASOC (backend).</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="AddressServiceAvailability">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RequestedAddressDetails" type="cng:AddressMatchInfo">
+              <xs:annotation>
+                <xs:documentation>Requested address information.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="3" minOccurs="0" name="AddressMatchDetails" type="cng:AddressMatchInfo">
+              <xs:annotation>
+                <xs:documentation/>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Geocode" type="cng:AddressGeocodeCoordinatesInfo">
+              <xs:annotation>
+                <xs:documentation>The Geographic positional coordinates for longitude and latitude</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="addressMatchCode">
+              <xs:annotation>
+                <xs:documentation>Address match indicator to the client 
+1 - Exact match
+2 - Near Match
+3 - No Match</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="1"/>
+                  <xs:maxLength value="5"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="lecName">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="50"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="region">
+              <xs:annotation>
+                <xs:documentation>RegionIndicator (Output)
+Y : In region 
+N : Out of region
+O : Out of franchise </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="2"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="swcClli">
+              <xs:annotation>
+                <xs:documentation>Serving wirecenter CLLI</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="8"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="locationClli">
+              <xs:annotation>
+                <xs:documentation>Building CLLI</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="11"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="ServiceAvailabilityDetails">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="requestedSpeed">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:choice>
+                    <xs:element name="Ethernet">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="popCLLI">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="11"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="ethernetAvailability">
+                            <xs:annotation>
+                              <xs:documentation>Is ethernet available:
+Y - Ethernet is Available
+N- Ethernet is not Available
+</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="2"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="lata" type="xs:int">
+                            <xs:annotation>
+                              <xs:documentation>Geographic Lata for the associated SWC </xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="maxAvailableSpeed">
+                            <xs:annotation>
+                              <xs:documentation>Highest speed that is supported for this address in Mbps</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="availableSpeed">
+                            <xs:annotation>
+                              <xs:documentation>Speed in Mbps.  If the requested speed is available, then it is shown in this field. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="20"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element maxOccurs="2" name="Service">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="name">
+                                  <xs:annotation>
+                                    <xs:documentation>Name of the service supported at this Serving Wire Center.</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="50"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="switchedDedicated">
+                                  <xs:annotation>
+                                    <xs:documentation>Valid Values:
+
+SWITCHED
+DEDICATED</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="20"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="electricalOptical">
+                            <xs:annotation>
+                              <xs:documentation>Electrical or Optical connectivity available (OutRegion only):  
+
+E: Electical Connectivity is available 
+O: Optical Connectivity is available
+B: Both Electrical and Optical Connectivity are available.</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="2"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="equipmentType">
+                            <xs:annotation>
+                              <xs:documentation>(Inregion Only) 
+Valid Values:
+
+EMUX: Supports electrical interface only and up to 250 mbps
+
+IPAG:  Supports both electrical and optical interfaces and up to 1000 mbps</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="mileage" type="xs:int">
+                            <xs:annotation>
+                              <xs:documentation>Mileage from SWC to POP.  Mileage will only be returned for Out region addresses</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element maxOccurs="unbounded" minOccurs="0" name="OtherSpeed">
+                            <xs:annotation>
+                              <xs:documentation>Used to display additional speeds for Out Region addresses</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="speed">
+                                  <xs:annotation>
+                                    <xs:documentation>Speed in Mbps</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="10"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="electricalOptical">
+                                  <xs:annotation>
+                                    <xs:documentation>Electrical or Optical connectivity available (OutRegion only):  
+
+E: Electical Connectivity is available 
+O: Optical Connectivity is available
+B: Both Electrical and Optical Connectivity are available</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="2"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="networkType" type="xs:int">
+                                  <xs:annotation>
+                                    <xs:documentation>Valid Values:
+
+1 = SWITCHED
+2 = DEDICATED
+3 = SWITCHED and DEDICATED</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="ExistingConnectivity">
+                            <xs:annotation>
+                              <xs:documentation>For Inregion Addresses only</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="copperFiber">
+                                  <xs:annotation>
+                                    <xs:documentation>Valid Values:
+C:  Copper connectivity already exists at this site.
+F:   Fiber connectivity already exists at this site.</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="currentMaxSpeed">
+                                  <xs:annotation>
+                                    <xs:documentation>Speed in Mpbs.  If copper, current max speed is 45 mb.  If fiber, current max speed is 1000</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value="10"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element maxOccurs="3" name="PrivateLine">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="popCLLI">
+                            <xs:annotation>
+                              <xs:documentation>Provider CLLI</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="11"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="speed">
+                            <xs:annotation>
+                              <xs:documentation>Speed for this line.
+
+Valid Values: 
+OC
+T1
+T3</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="spareQuantity" type="xs:int">
+                            <xs:annotation>
+                              <xs:documentation>Number of available Ports.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="mileage" type="xs:int">
+                            <xs:annotation>
+                              <xs:documentation>Rounded distance between customer CLLI and Provider CLLI</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="statusCode" type="xs:int"/>
+            <xs:element minOccurs="0" name="statusMessage">
+              <xs:annotation>
+                <xs:documentation>Backend will provide some information message if applicable.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="300"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Response" type="cng:ResponseInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductRateCardResponse.xsd" version="84.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductRateCardResponse.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="InquireNetworkProductRateCardResponse" type="InquireNetworkProductRateCardResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to provide Rate Card information to SP users.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InquireNetworkProductRateCardResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to provide Rate Card information to SP users</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="NetworkRateCardDetails">
+          <xs:annotation>
+            <xs:documentation>This object represents port speed and price. </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="networkTransportSpeedType">
+                <xs:annotation>
+                  <xs:documentation>This field is used to pass the networkSpeedType for  Transport(Port) Speeds. The type for this field is an enumeration with the following values. 
+
+T1
+T3
+ETH
+
+NOTE:
+T1: Private Line T1
+T3: Private Line T3
+ETH: Ethernet
+</xs:documentation>
+                  <xs:documentation/>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="T1"/>
+                    <xs:enumeration value="T3"/>
+                    <xs:enumeration value="ETH"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="commitmentTerm">
+                <xs:annotation>
+                  <xs:documentation>This is an enumeration that is used to represent the commitment terms supported for network products. Allowed values include: ONEYR and THREEYR (one year and three years respectively). </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="ONEYR"/>
+                    <xs:enumeration value="THREEYR"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="transportSpeedName">
+                <xs:annotation>
+                  <xs:documentation>TrasnsportSpeedName</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TransportPriceDetails" type="cng:ItemPriceInfo">
+                <xs:annotation>
+                  <xs:documentation>This represents the Port Price details.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="AccessPriceDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="networkAcessSpeedType">
+                      <xs:annotation>
+                        <xs:documentation>This field is used to pass the networkAccessSpeedType for Access Speeds. The type for this field is an enumeration with the following values. 
+
+PRIVATELINE
+ETH
+
+NOTE:
+T1: Private Line T1
+T3: Private Line T3
+ETH: Ethernet
+</xs:documentation>
+                        <xs:documentation/>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="PRIVATELINE"/>
+                          <xs:enumeration value="ETH"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="accessSpeedName">
+                      <xs:annotation>
+                        <xs:documentation>AccessSpeedName</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="100"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="PriceDetails" type="cng:ItemPriceInfo">
+                      <xs:annotation>
+                        <xs:documentation>This represents the Access Price details</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="accessPricingNotes">
+                      <xs:annotation>
+                        <xs:documentation>AccessPricingNotes</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="200"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="providerGroup">
+                      <xs:annotation>
+                        <xs:documentation>AccessPricingNotes</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="100"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="AseRateCardDetails">
+          <xs:annotation>
+            <xs:documentation>This object represents ASE speed and price. </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="commitmentTerm">
+                <xs:annotation>
+                  <xs:documentation>This is an enumeration that is used to represent the commitment terms supported for network products. Allowed values include: ONEYR and THREEYR (one year and three years respectively). </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="ONEYR"/>
+                    <xs:enumeration value="THREEYR"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="asePortSpeedPriceDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="speedName">
+                      <xs:annotation>
+                        <xs:documentation>Access Speed Name</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="200"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="speedInMbps" type="xs:int">
+                      <xs:annotation>
+                        <xs:documentation>Speed in Mbps</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="selectedServiceArrangement">
+                      <xs:annotation>
+                        <xs:documentation>Selected Service Arrangement</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="200"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="PriceDetails" type="cng:ItemPriceInfo">
+                      <xs:annotation>
+                        <xs:documentation>This represents the ASE Price details</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="aseCirSpeedPriceDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="speedName">
+                      <xs:annotation>
+                        <xs:documentation>Access Speed Name</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="200"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="selectedCosType">
+                      <xs:annotation>
+                        <xs:documentation>Selected Cos Type</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="200"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="selectedCosPackageName">
+                      <xs:annotation>
+                        <xs:documentation>Selected Cos Package Name</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="200"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="selectedServiceArrangement">
+                      <xs:annotation>
+                        <xs:documentation>Selected Service Arrangement</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="200"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="PriceDetails" type="cng:ItemPriceInfo">
+                      <xs:annotation>
+                        <xs:documentation>This represents the ASE Cir Price details</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" name="additionalNotes">
+        <xs:annotation>
+          <xs:documentation>Additional Notes in Response</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Warning" type="cng:ResponseInfo"/>
+      <xs:element name="Response" type="cng:ResponseInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

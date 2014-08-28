@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<wsdl:definitions xmlns:n3='http://csi.cingular.com/CSI/Namespaces/Container/Public/EchoResponse.xsd' xmlns:n2='http://csi.cingular.com/CSI/Namespaces/Container/Public/EchoRequest.xsd' xmlns:mhd='http://csi.cingular.com/CSI/Namespaces/Types/Public/MessageHeader.xsd' xmlns:n1='http://csi.cingular.com/CSI/Namespaces/Container/Public/CancelProvisioningOrderResponse.xsd' xmlns:n0='http://csi.cingular.com/CSI/Namespaces/Container/Public/CancelProvisioningOrderRequest.xsd' xmlns:n7='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductCatalogResponse.xsd' targetNamespace='http://csi.cingular.com/CSI/Namespaces/v84/wsdl/CingularWirelessCSI.wsdl' xmlns:n6='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductCatalogRequest.xsd' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:n5='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireASRStatusResponse.xsd' xmlns:n4='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireASRStatusRequest.xsd' xmlns:n9='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductPriceQuoteResponse.xsd' xmlns:n8='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductPriceQuoteRequest.xsd' xmlns:n10='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductRateCardRequest.xsd' xmlns:n14='http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressServiceAvailabilityRequest.xsd' xmlns:n13='http://csi.cingular.com/CSI/Namespaces/Container/Public/SubmitWirelineProvisioningOrderResponse.xsd' xmlns:n12='http://csi.cingular.com/CSI/Namespaces/Container/Public/SubmitWirelineProvisioningOrderRequest.xsd' xmlns:n11='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductRateCardResponse.xsd' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:sfd='http://csi.cingular.com/CSI/Namespaces/Types/Public/SoapFaultDetails.xsd' xmlns:n15='http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressServiceAvailabilityResponse.xsd' xmlns:tns='http://csi.cingular.com/CSI/Namespaces/v84/wsdl/CingularWirelessCSI.wsdl' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'>
+  <wsdl:types>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Types/Public/MessageHeader.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='MessageHeader.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Types/Public/SoapFaultDetails.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='SoapFaultDetails.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/CancelProvisioningOrderRequest.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='CancelProvisioningOrderRequest.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/CancelProvisioningOrderResponse.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='CancelProvisioningOrderResponse.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/EchoRequest.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='EchoRequest.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/EchoResponse.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='EchoResponse.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireASRStatusRequest.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='InquireASRStatusRequest.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireASRStatusResponse.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='InquireASRStatusResponse.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductCatalogRequest.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='InquireNetworkProductCatalogRequest.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductCatalogResponse.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='InquireNetworkProductCatalogResponse.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductPriceQuoteRequest.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='InquireNetworkProductPriceQuoteRequest.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductPriceQuoteResponse.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='InquireNetworkProductPriceQuoteResponse.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductRateCardRequest.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='InquireNetworkProductRateCardRequest.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductRateCardResponse.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='InquireNetworkProductRateCardResponse.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/SubmitWirelineProvisioningOrderRequest.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='SubmitWirelineProvisioningOrderRequest.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/SubmitWirelineProvisioningOrderResponse.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='SubmitWirelineProvisioningOrderResponse.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressServiceAvailabilityRequest.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='ValidateAddressServiceAvailabilityRequest.xsd' />
+    </xs:schema>
+    <xs:schema targetNamespace='http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressServiceAvailabilityResponse.xsd' elementFormDefault='qualified'>
+      <xs:include schemaLocation='ValidateAddressServiceAvailabilityResponse.xsd' />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name='CSIApplicationException'>
+    <wsdl:part name='fault' element='sfd:CSIApplicationException' />
+  </wsdl:message>
+  <wsdl:message name='CancelProvisioningOrderRequest'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='CancelProvisioningOrderRequest' element='n0:CancelProvisioningOrderRequest' />
+  </wsdl:message>
+  <wsdl:message name='CancelProvisioningOrderResponse'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='CancelProvisioningOrderResponse' element='n1:CancelProvisioningOrderResponse' />
+  </wsdl:message>
+  <wsdl:message name='EchoRequest'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='EchoRequest' element='n2:EchoRequest' />
+  </wsdl:message>
+  <wsdl:message name='EchoResponse'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='EchoResponse' element='n3:EchoResponse' />
+  </wsdl:message>
+  <wsdl:message name='InquireASRStatusRequest'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='InquireASRStatusRequest' element='n4:InquireASRStatusRequest' />
+  </wsdl:message>
+  <wsdl:message name='InquireASRStatusResponse'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='InquireASRStatusResponse' element='n5:InquireASRStatusResponse' />
+  </wsdl:message>
+  <wsdl:message name='InquireNetworkProductCatalogRequest'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='InquireNetworkProductCatalogRequest' element='n6:InquireNetworkProductCatalogRequest' />
+  </wsdl:message>
+  <wsdl:message name='InquireNetworkProductCatalogResponse'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='InquireNetworkProductCatalogResponse' element='n7:InquireNetworkProductCatalogResponse' />
+  </wsdl:message>
+  <wsdl:message name='InquireNetworkProductPriceQuoteRequest'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='InquireNetworkProductPriceQuoteRequest' element='n8:InquireNetworkProductPriceQuoteRequest' />
+  </wsdl:message>
+  <wsdl:message name='InquireNetworkProductPriceQuoteResponse'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='InquireNetworkProductPriceQuoteResponse' element='n9:InquireNetworkProductPriceQuoteResponse' />
+  </wsdl:message>
+  <wsdl:message name='InquireNetworkProductRateCardRequest'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='InquireNetworkProductRateCardRequest' element='n10:InquireNetworkProductRateCardRequest' />
+  </wsdl:message>
+  <wsdl:message name='InquireNetworkProductRateCardResponse'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='InquireNetworkProductRateCardResponse' element='n11:InquireNetworkProductRateCardResponse' />
+  </wsdl:message>
+  <wsdl:message name='SubmitWirelineProvisioningOrderRequest'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='SubmitWirelineProvisioningOrderRequest' element='n12:SubmitWirelineProvisioningOrderRequest' />
+  </wsdl:message>
+  <wsdl:message name='SubmitWirelineProvisioningOrderResponse'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='SubmitWirelineProvisioningOrderResponse' element='n13:SubmitWirelineProvisioningOrderResponse' />
+  </wsdl:message>
+  <wsdl:message name='ValidateAddressServiceAvailabilityRequest'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='ValidateAddressServiceAvailabilityRequest' element='n14:ValidateAddressServiceAvailabilityRequest' />
+  </wsdl:message>
+  <wsdl:message name='ValidateAddressServiceAvailabilityResponse'>
+    <wsdl:part name='MessageHeader' element='mhd:MessageHeader' />
+    <wsdl:part name='ValidateAddressServiceAvailabilityResponse' element='n15:ValidateAddressServiceAvailabilityResponse' />
+  </wsdl:message>
+  <wsdl:portType name='CancelProvisioningOrderPortType'>
+    <wsdl:operation name='CancelProvisioningOrder'>
+      <wsdl:input message='tns:CancelProvisioningOrderRequest' />
+      <wsdl:output message='tns:CancelProvisioningOrderResponse' />
+      <wsdl:fault name='fault' message='tns:CSIApplicationException' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name='EchoPortType'>
+    <wsdl:operation name='Echo'>
+      <wsdl:input message='tns:EchoRequest' />
+      <wsdl:output message='tns:EchoResponse' />
+      <wsdl:fault name='fault' message='tns:CSIApplicationException' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name='InquireASRStatusPortType'>
+    <wsdl:operation name='InquireASRStatus'>
+      <wsdl:input message='tns:InquireASRStatusRequest' />
+      <wsdl:output message='tns:InquireASRStatusResponse' />
+      <wsdl:fault name='fault' message='tns:CSIApplicationException' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name='InquireNetworkProductCatalogPortType'>
+    <wsdl:operation name='InquireNetworkProductCatalog'>
+      <wsdl:input message='tns:InquireNetworkProductCatalogRequest' />
+      <wsdl:output message='tns:InquireNetworkProductCatalogResponse' />
+      <wsdl:fault name='fault' message='tns:CSIApplicationException' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name='InquireNetworkProductPriceQuotePortType'>
+    <wsdl:operation name='InquireNetworkProductPriceQuote'>
+      <wsdl:input message='tns:InquireNetworkProductPriceQuoteRequest' />
+      <wsdl:output message='tns:InquireNetworkProductPriceQuoteResponse' />
+      <wsdl:fault name='fault' message='tns:CSIApplicationException' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name='InquireNetworkProductRateCardPortType'>
+    <wsdl:operation name='InquireNetworkProductRateCard'>
+      <wsdl:input message='tns:InquireNetworkProductRateCardRequest' />
+      <wsdl:output message='tns:InquireNetworkProductRateCardResponse' />
+      <wsdl:fault name='fault' message='tns:CSIApplicationException' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name='SubmitWirelineProvisioningOrderPortType'>
+    <wsdl:operation name='SubmitWirelineProvisioningOrder'>
+      <wsdl:input message='tns:SubmitWirelineProvisioningOrderRequest' />
+      <wsdl:output message='tns:SubmitWirelineProvisioningOrderResponse' />
+      <wsdl:fault name='fault' message='tns:CSIApplicationException' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name='ValidateAddressServiceAvailabilityPortType'>
+    <wsdl:operation name='ValidateAddressServiceAvailability'>
+      <wsdl:input message='tns:ValidateAddressServiceAvailabilityRequest' />
+      <wsdl:output message='tns:ValidateAddressServiceAvailabilityResponse' />
+      <wsdl:fault name='fault' message='tns:CSIApplicationException' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name='CancelProvisioningOrderSoapHttpBinding' type='tns:CancelProvisioningOrderPortType'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='CancelProvisioningOrder'>
+      <soap:operation soapAction='' style='document' />
+      <wsdl:input>
+        <soap:header message='tns:CancelProvisioningOrderRequest' part='MessageHeader' use='literal' />
+        <soap:body parts='CancelProvisioningOrderRequest' use='literal' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message='tns:CancelProvisioningOrderResponse' part='MessageHeader' use='literal' />
+        <soap:body parts='CancelProvisioningOrderResponse' use='literal' />
+      </wsdl:output>
+      <wsdl:fault name='fault'>
+        <soap:fault name='fault' use='literal' />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name='EchoSoapHttpBinding' type='tns:EchoPortType'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='Echo'>
+      <soap:operation soapAction='' style='document' />
+      <wsdl:input>
+        <soap:header message='tns:EchoRequest' part='MessageHeader' use='literal' />
+        <soap:body parts='EchoRequest' use='literal' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message='tns:EchoResponse' part='MessageHeader' use='literal' />
+        <soap:body parts='EchoResponse' use='literal' />
+      </wsdl:output>
+      <wsdl:fault name='fault'>
+        <soap:fault name='fault' use='literal' />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name='InquireASRStatusSoapHttpBinding' type='tns:InquireASRStatusPortType'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='InquireASRStatus'>
+      <soap:operation soapAction='' style='document' />
+      <wsdl:input>
+        <soap:header message='tns:InquireASRStatusRequest' part='MessageHeader' use='literal' />
+        <soap:body parts='InquireASRStatusRequest' use='literal' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message='tns:InquireASRStatusResponse' part='MessageHeader' use='literal' />
+        <soap:body parts='InquireASRStatusResponse' use='literal' />
+      </wsdl:output>
+      <wsdl:fault name='fault'>
+        <soap:fault name='fault' use='literal' />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name='InquireNetworkProductCatalogSoapHttpBinding' type='tns:InquireNetworkProductCatalogPortType'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='InquireNetworkProductCatalog'>
+      <soap:operation soapAction='' style='document' />
+      <wsdl:input>
+        <soap:header message='tns:InquireNetworkProductCatalogRequest' part='MessageHeader' use='literal' />
+        <soap:body parts='InquireNetworkProductCatalogRequest' use='literal' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message='tns:InquireNetworkProductCatalogResponse' part='MessageHeader' use='literal' />
+        <soap:body parts='InquireNetworkProductCatalogResponse' use='literal' />
+      </wsdl:output>
+      <wsdl:fault name='fault'>
+        <soap:fault name='fault' use='literal' />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name='InquireNetworkProductPriceQuoteSoapHttpBinding' type='tns:InquireNetworkProductPriceQuotePortType'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='InquireNetworkProductPriceQuote'>
+      <soap:operation soapAction='' style='document' />
+      <wsdl:input>
+        <soap:header message='tns:InquireNetworkProductPriceQuoteRequest' part='MessageHeader' use='literal' />
+        <soap:body parts='InquireNetworkProductPriceQuoteRequest' use='literal' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message='tns:InquireNetworkProductPriceQuoteResponse' part='MessageHeader' use='literal' />
+        <soap:body parts='InquireNetworkProductPriceQuoteResponse' use='literal' />
+      </wsdl:output>
+      <wsdl:fault name='fault'>
+        <soap:fault name='fault' use='literal' />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name='InquireNetworkProductRateCardSoapHttpBinding' type='tns:InquireNetworkProductRateCardPortType'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='InquireNetworkProductRateCard'>
+      <soap:operation soapAction='' style='document' />
+      <wsdl:input>
+        <soap:header message='tns:InquireNetworkProductRateCardRequest' part='MessageHeader' use='literal' />
+        <soap:body parts='InquireNetworkProductRateCardRequest' use='literal' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message='tns:InquireNetworkProductRateCardResponse' part='MessageHeader' use='literal' />
+        <soap:body parts='InquireNetworkProductRateCardResponse' use='literal' />
+      </wsdl:output>
+      <wsdl:fault name='fault'>
+        <soap:fault name='fault' use='literal' />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name='SubmitWirelineProvisioningOrderSoapHttpBinding' type='tns:SubmitWirelineProvisioningOrderPortType'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='SubmitWirelineProvisioningOrder'>
+      <soap:operation soapAction='' style='document' />
+      <wsdl:input>
+        <soap:header message='tns:SubmitWirelineProvisioningOrderRequest' part='MessageHeader' use='literal' />
+        <soap:body parts='SubmitWirelineProvisioningOrderRequest' use='literal' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message='tns:SubmitWirelineProvisioningOrderResponse' part='MessageHeader' use='literal' />
+        <soap:body parts='SubmitWirelineProvisioningOrderResponse' use='literal' />
+      </wsdl:output>
+      <wsdl:fault name='fault'>
+        <soap:fault name='fault' use='literal' />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name='ValidateAddressServiceAvailabilitySoapHttpBinding' type='tns:ValidateAddressServiceAvailabilityPortType'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='ValidateAddressServiceAvailability'>
+      <soap:operation soapAction='' style='document' />
+      <wsdl:input>
+        <soap:header message='tns:ValidateAddressServiceAvailabilityRequest' part='MessageHeader' use='literal' />
+        <soap:body parts='ValidateAddressServiceAvailabilityRequest' use='literal' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message='tns:ValidateAddressServiceAvailabilityResponse' part='MessageHeader' use='literal' />
+        <soap:body parts='ValidateAddressServiceAvailabilityResponse' use='literal' />
+      </wsdl:output>
+      <wsdl:fault name='fault'>
+        <soap:fault name='fault' use='literal' />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name='CingularWirelessCSIService'>
+    <wsdl:port name='CancelProvisioningOrderSoapHttpPort' binding='tns:CancelProvisioningOrderSoapHttpBinding'>
+      <soap:address location='https://q22-csiwwwi.hydc.sbc.com:22443/Services/com/cingular/csi/order/CancelProvisioningOrder.jws' />
+    </wsdl:port>
+    <wsdl:port name='EchoSoapHttpPort' binding='tns:EchoSoapHttpBinding'>
+      <soap:address location='https://q22-csiwwwi.hydc.sbc.com:22443/Services/com/cingular/csi/echo/Echo.jws' />
+    </wsdl:port>
+    <wsdl:port name='InquireASRStatusSoapHttpPort' binding='tns:InquireASRStatusSoapHttpBinding'>
+      <soap:address location='https://q22-csiwwwi.hydc.sbc.com:22443/Services/com/cingular/csi/wfac/InquireASRStatus.jws' />
+    </wsdl:port>
+    <wsdl:port name='InquireNetworkProductCatalogSoapHttpPort' binding='tns:InquireNetworkProductCatalogSoapHttpBinding'>
+      <soap:address location='https://q22-csiwwwi.hydc.sbc.com:22443/Services/com/cingular/csi/pricing/InquireNetworkProductCatalog.jws' />
+    </wsdl:port>
+    <wsdl:port name='InquireNetworkProductPriceQuoteSoapHttpPort' binding='tns:InquireNetworkProductPriceQuoteSoapHttpBinding'>
+      <soap:address location='https://q22-csiwwwi.hydc.sbc.com:22443/Services/com/cingular/csi/pricing/InquireNetworkProductPriceQuote.jws' />
+    </wsdl:port>
+    <wsdl:port name='InquireNetworkProductRateCardSoapHttpPort' binding='tns:InquireNetworkProductRateCardSoapHttpBinding'>
+      <soap:address location='https://q22-csiwwwi.hydc.sbc.com:22443/Services/com/cingular/csi/pricing/InquireNetworkProductRateCard.jws' />
+    </wsdl:port>
+    <wsdl:port name='SubmitWirelineProvisioningOrderSoapHttpPort' binding='tns:SubmitWirelineProvisioningOrderSoapHttpBinding'>
+      <soap:address location='https://q22-csiwwwi.hydc.sbc.com:22443/Services/com/cingular/csi/order/SubmitWirelineProvisioningOrder.jws' />
+    </wsdl:port>
+    <wsdl:port name='ValidateAddressServiceAvailabilitySoapHttpPort' binding='tns:ValidateAddressServiceAvailabilitySoapHttpBinding'>
+      <soap:address location='https://q22-csiwwwi.hydc.sbc.com:22443/Services/com/cingular/csi/pricing/ValidateAddressServiceAvailability.jws' />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

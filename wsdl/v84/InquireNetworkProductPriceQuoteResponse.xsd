@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductPriceQuoteResponse.xsd" version="76.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireNetworkProductPriceQuoteResponse.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="InquireNetworkProductPriceQuoteResponse" type="InquireNetworkProductPriceQuoteResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to provide price catalog to SP users.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InquireNetworkProductPriceQuoteResponseInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to provide price quote to SP users</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SitePortListPrice" type="cng:ItemPriceInfo">
+        <xs:annotation>
+          <xs:documentation>This represents the price of the Port Speed for the request.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="SiteAccessListPrice" type="cng:ItemPriceInfo">
+        <xs:annotation>
+          <xs:documentation>This represents the price of the Port Speed for the request.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="additionalNotes">
+        <xs:annotation>
+          <xs:documentation>Additional Notes in Response</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Warning" type="cng:ResponseInfo"/>
+      <xs:element name="Response" type="cng:ResponseInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

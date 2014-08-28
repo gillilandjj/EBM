@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireASRStatusRequest.xsd" version="84.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireASRStatusRequest.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="InquireASRStatusRequest" type="InquireASRStatusRequestInfo"/>
+  <xs:complexType name="InquireASRStatusRequestInfo">
+    <xs:annotation>
+      <xs:documentation>This request is used to retrieve a telco order status from WFAC</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="siteId" type="cng:PremiseIdInfo">
+        <xs:annotation>
+          <xs:documentation>site id to retrieve data from deal hash</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="circuitId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>TELCO Circuit ID to retrieve Att Circuit id from deal hash</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="attCircuitId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>TELCO Circuit ID to retrieve Att Circuit id from deal hash</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

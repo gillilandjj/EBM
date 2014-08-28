@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================================
+
+                         AT&T Proprietary (Internal Use Only)                                           
+
+  Not for use or disclosure outside the AT&T companies except under written agreement
+
+  (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+
+        the AT&T logo are trademarks of AT&T Intellectual Property.
+
+======================================================================= -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressServiceAvailabilityRequest.xsd" version="76.0.00" xmlns="http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressServiceAvailabilityRequest.xsd" xmlns:cng="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://csi.cingular.com/CSI/Namespaces/Types/Public/CingularDataModel.xsd" schemaLocation="CingularDataModel.xsd"/>
+  <xs:element name="ValidateAddressServiceAvailabilityRequest" type="ValidateAddressServiceAvailabilityRequestInfo">
+    <xs:annotation>
+      <xs:documentation>This interface is to validate the given address, or an option also to get the availability of services in a validated address.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ValidateAddressServiceAvailabilityRequestInfo">
+    <xs:sequence>
+      <xs:element default="A" name="mode">
+        <xs:annotation>
+          <xs:documentation>Valid values are:
+A=Address Validation Only (default)
+B=Both Address Validation and Service Availability</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="A"/>
+            <xs:enumeration value="B"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element default="true" minOccurs="0" name="nearMatchIndicator" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>True : Return Near Matches (default)
+False : Not Return Near Matches</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element default="false" minOccurs="0" name="displayAllSpeeds" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>True : Returns all available speeds for the serving wire center. (All speeds will only be returned if address is Out Region)
+
+False : Does not return available speeds (default)
+
+** If the requestedSpeed does not match an availableSpeed , then the ?OtherSpeed? list will be populated on the response, regardless if this field is true or false.
+</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="6" name="AddressDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Address" type="cng:AddressMatchInfo">
+              <xs:annotation>
+                <xs:documentation/>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ServiceAvailability" type="cng:NetworkServiceAvailability"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
